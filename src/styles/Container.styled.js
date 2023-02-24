@@ -45,7 +45,7 @@ export const BigImageContainer = styled.div`
     object-fit: fill;
     vertical-align: bottom;
     width: 100%;
-    height: 100%;
+    height: 450px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
   }
@@ -78,6 +78,7 @@ export const GridImageContainer = styled.div`
       object-position: center;
       vertical-align: bottom;
       width: 100%;
+      height: 220px;
     }
     .image2 {
       border-top-right-radius: 10px;
@@ -134,4 +135,49 @@ export const MapWrapper = styled(StyledContainer)`
   display: flex;
   justify-content: center;
   margin-top: 30px;
+`;
+
+export const PaymentContainer = styled(StyledContainer)`
+  padding: 10px 160px;
+  @media (min-width: 1500px) {
+    padding: 10px 320px;
+  }
+`;
+
+export const PaymentImageWrapper = styled(StyledContainer)`
+  display: flex;
+  height: 100px;
+`;
+
+export const PaymentImageContainer = styled(StyledContainer)`
+  width: 30%;
+  margin-right: 15px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    vertical-align: bottom;
+    border-radius: 10px;
+  }
+`;
+
+export const PromoteContainer = styled(StyledContainer)`
+  position: relative;
+  border: 1px solid ${props => props.theme.bg.border};
+  border-radius: 12px;
+  padding: 25px;
+  width: 100%;
+`;
+export const InfoContainer = styled(StyledContainer)`
+  display: flex;
+  min-height: 500px;
+`;
+
+export const LeftContainer = styled(StyledContainer)`
+  width: 50%;
+`;
+
+export const BackContainer = styled(StyledContainer)`
+  padding: 50px 0;
 `;

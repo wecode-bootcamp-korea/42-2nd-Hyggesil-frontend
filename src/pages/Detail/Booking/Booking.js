@@ -10,7 +10,7 @@ import * as SC from '../../../styles/Container.styled';
 import './DatePicker.css';
 
 const Booking = props => {
-  const { detailData } = props;
+  const { detailData, excludeDates } = props;
   const [count, setCount] = useState(0);
   const [dateRange, setDateRange] = useState([null, null]);
   const [fixed, setFixed] = useState(false);
@@ -37,11 +37,17 @@ const Booking = props => {
       setCount(prev => prev + 1);
     } else if (operation === 'decrement' && count > 0) {
       setCount(prev => prev - 1);
+    } else if (operation === 'increment' && count >= detailData.guestMax) {
+      alert('정원 초과입니다');
     }
   };
 
   const onClickButton = () => {
-    navigate('/payment', { state: { detailData, checkInDate, checkOutDate } });
+    if (count >= 1 && endDate) {
+      navigate('/payment', {
+        state: { detailData, checkInDate, checkOutDate, duration, count },
+      });
+    } else alert('인원 및 예약일을 선택하여 주세요');
   };
 
   const MyContainer = ({ className, children }) => {
@@ -86,7 +92,10 @@ const Booking = props => {
                     {'<'}
                   </span>
                 </button>
-                <span className="react-datepicker__current-month">
+                <span
+                  className="react-datepicker__current-month"
+                  style={{ fontWeight: '14px' }}
+                >
                   {monthDate.toLocaleString('kr-Kr', {
                     month: 'long',
                     year: 'numeric',
@@ -109,6 +118,8 @@ const Booking = props => {
             selectsRange={true}
             startDate={startDate}
             endDate={endDate}
+            minDate={new Date()}
+            excludeDates={excludeDates}
             onChange={update => {
               setDateRange(update);
             }}

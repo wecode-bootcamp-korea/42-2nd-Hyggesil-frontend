@@ -61,3 +61,15 @@ export const CenterForm = styled(StyledForm)`
   padding: 5px;
   margin-bottom: 20px;
 `;
+
+export const PaymentForm = styled(StyledForm)`
+  border: 1px solid ${props => props.theme.bg.border};
+  border-radius: 12px;
+  width: 450px;
+  padding: 24px;
+  position: absolute;
+  right: 160px;
+  @media (min-width: 1500px) {
+    right: 320px;
+  }
+`;

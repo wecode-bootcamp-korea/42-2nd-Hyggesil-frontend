@@ -15,6 +15,7 @@ import * as ST from '../../styles/Content.styled';
 const Detail = () => {
   const params = useParams();
   const [detailData, setDetailData] = useState([]);
+  const [excludeDates, setExcludeDates] = useState([]);
   const url = window.location.href;
 
   const OPTION_DATA = [
@@ -52,18 +53,21 @@ const Detail = () => {
     TV: <RiTvLine />,
   };
 
-  // useEffect(() => {
-  //   fetch(`http://hyggesil.com/hotel`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setDetailData(data.hotels[params.id - 1]);
-  //     });
-  // }, []);
+  const DUMMY_IMAGES_DATA = [
+    '/images/dummy.png',
+    '/images/dummy.png',
+    '/images/dummy.png',
+    '/images/dummy.png',
+  ];
+
   useEffect(() => {
-    fetch(`/data/price.json`)
+    fetch(`http://10.58.52.190:4000/hotels/${params.id}`)
       .then(res => res.json())
       .then(data => {
-        setDetailData(data[params.id - 1]);
+        setDetailData(data.hotel);
+        data.hotel.unAvailableDate.map(exdate =>
+          setExcludeDates(prevDates => [...prevDates, new Date(exdate)])
+        );
       });
   }, []);
 
@@ -86,19 +90,30 @@ const Detail = () => {
       </ST.BetweenLine>
       <SC.ImageContainer>
         <SC.BigImageContainer>
-          {/* <img src={detailData.images && detailData.images[0]} alt="hotel" /> */}
-          <img src="/images/back.png" alt="hotel" />
+          <img
+            src={detailData.images ? detailData.images[0] : '/images/dummy.png'}
+            alt="hotel"
+          />
         </SC.BigImageContainer>
         <SC.GridImageContainer>
-          {detailData.images &&
-            detailData.images.map(
-              (image, index) =>
-                index >= 1 && (
-                  <div key={index}>
-                    <img src={image} alt="hotel" className={`image${index}`} />
-                  </div>
-                )
-            )}
+          {detailData.images
+            ? detailData.images.map(
+                (image, index) =>
+                  index >= 1 && (
+                    <div key={index}>
+                      <img
+                        src={image}
+                        alt="hotel"
+                        className={`image${index}`}
+                      />
+                    </div>
+                  )
+              )
+            : DUMMY_IMAGES_DATA.map((image, index) => (
+                <div key={index}>
+                  <img src={image} alt="hotel" className={`image${index}`} />
+                </div>
+              ))}
         </SC.GridImageContainer>
       </SC.ImageContainer>
       <SC.OptionContainer>
@@ -120,13 +135,16 @@ const Detail = () => {
               detailData.convenients.map((option, index) => (
                 <ST.MarginedH2 key={index}>
                   {CONVENITENTS_DATA[option]}
-
                   <ST.MiddleSpan>{option}</ST.MiddleSpan>
                 </ST.MarginedH2>
               ))}
           </SC.HotelOptionContainer>
         </SC.OptionUnitContainer>
-        <Booking params={params} detailData={detailData} />
+        <Booking
+          params={params}
+          detailData={detailData}
+          excludeDates={excludeDates}
+        />
       </SC.OptionContainer>
       <ST.UnderlineDiv />
       <ST.BoldH1>호스팅 지역</ST.BoldH1>

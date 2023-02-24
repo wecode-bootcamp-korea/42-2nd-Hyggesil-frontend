@@ -12,7 +12,7 @@ const KakaoLogin = () => {
     fetch(`https://kauth.kakao.com/oauth/token`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `grant_type=authorization_code&client_id=${process.env.REST_API_KEY}&redirect_uri=${process.env.REDIRECT_URI}&code=${AUTHORIZE_CODE}`,
+      body: `grant_type=authorization_code&client_id=${process.env.REACT_APP_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&code=${AUTHORIZE_CODE}`,
     })
       .then(res => res.json())
       .then(data => {
@@ -25,7 +25,7 @@ const KakaoLogin = () => {
   };
 
   const postToken = token => {
-    fetch(`http://10.58.52.82:3000/users/login/kakao`, {
+    fetch(`http://10.58.52.227:3000/users/login/kakao`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
