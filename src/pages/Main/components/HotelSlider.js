@@ -29,7 +29,7 @@ const HotelSlider = ({ img }) => {
       <S.StyledSlider {...settings}>
         {img.map(data => {
           return (
-            <S.SilderImg>
+            <S.SilderImg key={data.id}>
               <img src={data} alt="hotel" />
             </S.SilderImg>
           );

@@ -43,6 +43,7 @@ const FooterWrap = styled.div`
   min-width: 1400px;
   padding: 10px 0 10px;
   background-color: #eee;
+  margin: 0;
   z-index: -1;
 `;
 

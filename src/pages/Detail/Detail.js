@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { json, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Booking from './Booking/Booking';
 import { AiOutlineUserAdd, AiOutlineWifi } from 'react-icons/ai';
 import { BiBed } from 'react-icons/bi';
@@ -11,6 +11,7 @@ import { RiTvLine } from 'react-icons/ri';
 import { kakaoShare } from './Share/KakaoShare';
 import * as SC from '../../styles/Container.styled';
 import * as ST from '../../styles/Content.styled';
+import KakaoMap from '../../components/KakaoMap/KakaoMap';
 
 const Detail = () => {
   const params = useParams();
@@ -77,7 +78,6 @@ const Detail = () => {
         localStorage.setItem('recentItems', JSON.stringify(newRecentItems));
       });
   }, []);
-
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
@@ -156,7 +156,15 @@ const Detail = () => {
       <ST.UnderlineDiv />
       <ST.BoldH1>호스팅 지역</ST.BoldH1>
       <SC.MapWrapper>
-        <SC.MapContainer>지도</SC.MapContainer>
+        <SC.MapContainer>
+          {detailData.coordinate && (
+            <KakaoMap
+              data={detailData}
+              size={{ width: '100%', height: '400px' }}
+              type="detail"
+            />
+          )}
+        </SC.MapContainer>
       </SC.MapWrapper>
     </SC.DetailContainer>
   );

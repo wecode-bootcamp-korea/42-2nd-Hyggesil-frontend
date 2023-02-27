@@ -12,11 +12,12 @@ const KakaoLogin = () => {
     fetch(`https://kauth.kakao.com/oauth/token`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `grant_type=authorization_code&client_id=${process.env.REACT_APP_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&code=${AUTHORIZE_CODE}`,
+      body: `grant_type=authorization_code&client_id=3763920e36dc605d6cc82158161734ec&redirect_uri=http://localhost:3000/kakaoologin&code=${AUTHORIZE_CODE}`,
     })
-      .then(res => res.json())
+      .then(res => res.json())∑
       .then(data => {
         if (data.access_token) {
+          console.log(1);
           postToken(data.access_token);
         } else {
           navigate('/');
