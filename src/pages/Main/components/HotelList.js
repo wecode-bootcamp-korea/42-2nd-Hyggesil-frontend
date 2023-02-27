@@ -25,11 +25,7 @@ const HotelList = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    const URL = `http://hyggesil.com/hotels${location.search}`;
-    fetch(URL)
-      // const MOCK = `data/hotellist.json?${location.search}`;
-      // console.log('mock', MOCK);
-      // fetch(MOCK)
+    fetch(`http://hyggesil.com/hotels${location.search}`)
       .then(response => response.json())
       .then(({ hotels }) => {
         setHotels(hotels);
@@ -74,6 +70,7 @@ const HotelList = () => {
     searchParams.delete('convenients');
     setSearchParams(searchParams);
   }, [initFilter]);
+
   return (
     <>
       <S.FilterWrap>

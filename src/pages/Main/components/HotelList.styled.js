@@ -8,7 +8,6 @@ export const FilterWrap = styled.div`
   /* top: 80px; */
   /* padding :  */
   z-index: 4;
-  /* position: fixed; */
   /* border-radius: 40px; */
   /* border: solid 2px black; */
   justify-content: center;
