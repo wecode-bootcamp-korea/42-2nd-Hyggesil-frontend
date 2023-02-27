@@ -13,7 +13,7 @@ const HostSetHotelInfo = ({ hotelInfo }) => {
     images,
   } = hotelInfo;
 
-  const onClickInfo = () => {
+  const onSubmitInfo = async () => {
     const formData = new FormData();
     formData.append('name', name); // 데이터 추가
     formData.append('address', address); // 데이터 추가
@@ -24,13 +24,19 @@ const HostSetHotelInfo = ({ hotelInfo }) => {
     formData.append('guestMax', guestMax); // 데이터 추가
     formData.append('images', images); // 데이터 추가
 
-    fetch('http://hyggesil.com:4000/hosts', {
-      method: 'POST',
-      body: formData,
-    });
+    try {
+      const response = await fetch('http://hyggesil.com:4000/hosts', {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
-    <StyledHotelInfoContainer>
+    <StyledHotelInfoContainer onSubmit={onSubmitInfo}>
       <StyledInfoItem>
         <StyledLabel>호텔명</StyledLabel>
         <StyledValue>{name}</StyledValue>
@@ -56,13 +62,13 @@ const HostSetHotelInfo = ({ hotelInfo }) => {
         <StyledValue>{guestMax}명</StyledValue>
       </StyledInfoItem>
       <StyledButtonWrap>
-        <StyledButton onClick={onClickInfo}>완료</StyledButton>
+        <StyledButton type="submit">완료</StyledButton>
       </StyledButtonWrap>
     </StyledHotelInfoContainer>
   );
 };
 
-const StyledHotelInfoContainer = styled.div`
+const StyledHotelInfoContainer = styled.form`
   position: absolute;
   top: 200px;
   left: 50%;

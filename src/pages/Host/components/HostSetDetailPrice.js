@@ -7,10 +7,10 @@ const HostSetDetailPrice = ({ setHotelInfo }) => {
   const [detailInfoValue, setDetailInfoValue] = useState(0);
   const onChangeInputValue = ({ target: { value } }, operator) => {
     if (operator === '+') {
-      setDetailInfoValue(detailInfoValue + 10000);
+      setDetailInfoValue(detailInfoValue + 1000);
     } else if (operator === '-') {
       if (detailInfoValue <= 0) return;
-      setDetailInfoValue(detailInfoValue - 10000);
+      setDetailInfoValue(detailInfoValue - 1000);
     } else {
       setDetailInfoValue(Number(value));
     }
