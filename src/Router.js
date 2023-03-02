@@ -10,10 +10,11 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import User from './pages/Login/components/User';
 import KakaoLogin from './pages/Login/components/KakaoLogin';
-
+import GlobalStyle from './styles/GlobalStyle';
 function Router() {
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
