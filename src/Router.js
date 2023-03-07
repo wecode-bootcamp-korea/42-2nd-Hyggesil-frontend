@@ -6,7 +6,7 @@ import Login from './pages/Login/Login';
 import Detail from './pages/Detail/Detail';
 import Host from './pages/Host/Host';
 import Payment from './pages/Payment/Payment';
-import Nav from './components/Nav/Nav';
+import TopNav from './components/TopNav/TopNav';
 import Footer from './components/Footer/Footer';
 import User from './pages/Login/components/User';
 import KakaoLogin from './pages/Login/components/KakaoLogin';
@@ -15,7 +15,7 @@ function Router() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <Nav />
+      <TopNav />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Login />} />
