@@ -108,3 +108,11 @@
 .react-datepicker__header {
   text-align: center;
 }
+
+.react-datepicker__day--range-start,
+.react-datepicker__day--range-end {
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  outline: 2px solid black;
+}

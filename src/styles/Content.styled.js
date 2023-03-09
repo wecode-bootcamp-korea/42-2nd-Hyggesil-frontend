@@ -15,6 +15,12 @@ export const BetweenLine = styled(BetweenDiv)`
   padding: 0 20px;
 `;
 
+export const PriceLine = styled(BetweenDiv)`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
 export const Underline = styled.div`
   display: ${props => isNaN(props.duration) && 'none'};
   border-bottom: 1px solid ${props => props.theme.bg.border};
@@ -26,9 +32,22 @@ export const UnderlineDiv = styled(Underline)`
   margin: 10px 0 20px 0;
 `;
 
+export const UnderlineMarginedDiv = styled(Underline)`
+  display: flex;
+  margin: 30px 0 30px 0;
+`;
+
+export const H0 = styled.span`
+  font-size: 30px;
+`;
 export const H1 = styled.h1`
   font-size: 22px;
   font-weight: 300;
+`;
+
+export const MarginTopedH1 = styled(H1)`
+  margin: 20px 0;
+  font-weight: 400;
 `;
 
 export const BoldH1 = styled(H1)`
@@ -43,6 +62,7 @@ export const NarrowBoldH1 = styled(H1)`
 
 export const H2 = styled.h2`
   font-size: 15px;
+  line-height: 20px;
 `;
 
 export const UnderlinedH2 = styled(H2)`
@@ -58,6 +78,16 @@ export const MarginedH2 = styled(H2)`
   align-items: center;
   margin: 0 0 20px 5px;
   font-size: 22px;
+`;
+
+export const MarginTopedH2 = styled(H2)`
+  margin-top: 20px;
+  font-weight: 600;
+`;
+
+export const InfoH2 = styled(H2)`
+  margin-top: 10px;
+  font-size: 15px;
 `;
 
 export const H3 = styled.h3`
@@ -88,6 +118,15 @@ export const UnderlinedSpan = styled(Span)`
   cursor: pointer;
 `;
 
+export const PaymentInfoDiv = styled.h2`
+  font-size: 12px;
+`;
+
+export const PaymentInfoColorDiv = styled(PaymentInfoDiv)`
+  color: #717171;
+  margin-bottom: 5px;
+`;
+
 export const MyDatePicker = styled(DatePicker)`
   position: absolute;
   top: 50%;
@@ -109,4 +148,32 @@ export const MyDatePicker = styled(DatePicker)`
 
 export const DoubleCalendarContainer = styled(CalendarContainer)`
   display: flex;
+`;
+
+export const ProtectionDiv = styled.div`
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  img {
+    width: 45px;
+    margin-bottom: 2px;
+  }
+`;
+
+export const AlertDiv = styled.div`
+  margin-top: 20px;
+`;
+
+export const Jewel = styled.img`
+  position: absolute;
+  width: 35px;
+  top: 25%;
+  right: 30px;
+`;
+
+export const List = styled.li`
+  font-size: 12px;
+  margin-top: 10px;
+  text-indent: -5px; /* 점 위치 이동 */
+  margin-left: 15px;
 `;
