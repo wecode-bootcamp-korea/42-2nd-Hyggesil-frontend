@@ -25,7 +25,7 @@ const Payment = () => {
 
   const BookingHandler = () => {
     const token = localStorage.getItem('token');
-    fetch('http://10.58.52.227:3000/reservations/payment', {
+    fetch('http://hyggesil.com/reservations/payment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

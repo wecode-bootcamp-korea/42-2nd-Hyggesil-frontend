@@ -25,7 +25,7 @@ const KakaoLogin = () => {
   };
 
   const postToken = token => {
-    fetch(`http://10.58.52.227:3000/users/login/kakao`, {
+    fetch(`http://hyggesil.com/users/login/kakao`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

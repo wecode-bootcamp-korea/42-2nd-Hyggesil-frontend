@@ -8,7 +8,7 @@ export const StyledSlider = styled(Slider)`
   width: 100%;
   margin: auto;
   position: relative;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 
   .slick-prev::before,
   .slick-next::before {
@@ -30,7 +30,7 @@ export const SilderImg = styled.div`
   img {
     height: 100%;
     width: 100%;
-    border-radius: 10px;
+    /* border-radius: 10px; */
   }
 `;
 

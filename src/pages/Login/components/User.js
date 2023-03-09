@@ -57,7 +57,7 @@ const User = ({ content: { title, text, url, text2 } }) => {
     e.preventDefault();
     // 로그인 API 호출
     if (isLogin) {
-      fetch('http://10.58.52.82:3000/users/login', {
+      fetch('http://hyggesil.com/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',

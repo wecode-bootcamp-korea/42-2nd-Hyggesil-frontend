@@ -19,10 +19,10 @@ const FilterModal = ({
   const [selectedConvenients, setSelectedConvenients] = useState([]);
   const [selectedRoomOption, setSelectedRoomOption] = useState({});
 
-  // console.log('최저가격', rangeMinValue);
-  // console.log('최고가격:', rangeMaxValue);
-  // console.log('편의시설', selectedConvenients);
-  // console.log('룸옵션', selectedRoomOption);
+  console.log('최저가격', rangeMinValue);
+  console.log('최고가격:', rangeMaxValue);
+  console.log('편의시설', selectedConvenients);
+  console.log('룸옵션', selectedRoomOption);
 
   const handleRangeChange = (min, max) => {
     setRangeMinValue(min);

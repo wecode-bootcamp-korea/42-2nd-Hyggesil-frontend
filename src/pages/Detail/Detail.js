@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { json, useParams } from 'react-router-dom';
 import Booking from './Booking/Booking';
 import { AiOutlineUserAdd, AiOutlineWifi } from 'react-icons/ai';
 import { BiBed } from 'react-icons/bi';
@@ -61,13 +61,20 @@ const Detail = () => {
   ];
 
   useEffect(() => {
-    fetch(`http://10.58.52.190:4000/hotels/${params.id}`)
+    fetch(`http://hyggesil.com/hotels/${params.id}`)
       .then(res => res.json())
       .then(data => {
         setDetailData(data.hotel);
         data.hotel.unAvailableDate.map(exdate =>
           setExcludeDates(prevDates => [...prevDates, new Date(exdate)])
         );
+        const recentItems =
+          JSON.parse(localStorage.getItem('recentItems')) || [];
+        const newRecentItems = [
+          data.hotel,
+          ...recentItems.filter(item => item.id !== data.hotel.id).slice(0, 3), // 최대 4개까지만 저장
+        ];
+        localStorage.setItem('recentItems', JSON.stringify(newRecentItems));
       });
   }, []);
 

@@ -4,11 +4,11 @@ export const FilterWrap = styled.div`
   display: flex;
   /* margin: auto; */
   width: 100%;
-  height: 100px;
-  top: 0;
+  height: 80px;
+  /* top: 80px; */
   /* padding :  */
   z-index: 4;
-  position: fixed;
+  /* position: fixed; */
   /* border-radius: 40px; */
   /* border: solid 2px black; */
   justify-content: center;
@@ -17,7 +17,8 @@ export const FilterWrap = styled.div`
 
 export const HotelContainer = styled.div`
   display: grid;
-  margin: 80px auto 20px auto;
+  position: relative;
+  margin: 20px auto;
   width: 70%;
   grid-template-columns: auto auto auto auto;
   /* border: solid 1px black; */
@@ -31,6 +32,7 @@ export const FilterDiv = styled.div`
   button {
     margin-right: 20px;
     margin-left: 20px;
+    height: 70px;
     background-color: white;
     font-size: 20px;
     border: none;
@@ -43,6 +45,12 @@ export const FilterDiv = styled.div`
       border-bottom: solid 3px black;
     }
   }
+
+  .active {
+    color: black;
+    border-bottom: solid 3px black;
+    font-weight: bold;
+  }
 `;
 
 export const Icon = styled.div`
@@ -50,15 +58,18 @@ export const Icon = styled.div`
   text-align: center;
 `;
 export const FilterBtn = styled.button`
-  width: 100px;
-  height: 50px;
+  width: 300px;
+  height: 40px;
+  /* border: solid 1px black; */
+  border-radius: 20px;
   position: absolute;
-  border: solid 1px black;
+  /* border: solid 1px rgb(221, 221, 221); */
   margin-left: 30px;
-  right: 16%;
-  top: 32%;
+  box-shadow: 1px 3px 2px 1px gray;
+  top: 15px;
   /* border-radius: 10px; */
-  font-size: 15px;
+  font-size: 13px;
+  color: gray;
   background-color: white;
   cursor: pointer;
 `;
