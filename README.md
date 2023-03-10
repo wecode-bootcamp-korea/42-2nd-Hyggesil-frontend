@@ -1,3 +1,5 @@
+![IMG_9067](https://user-images.githubusercontent.com/120270709/224227563-7c199bc0-6372-42f7-9690-9b924e2e221c.png)
+
 # Hyggesil 프로젝트 소개
 
 - 서울 지역 한정 호캉스 예약 호스팅 사이트 구현 프로젝트
