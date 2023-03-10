@@ -37,6 +37,7 @@
 
 ### 상세페이지 
 
-![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/120270709/224232096-fdf31a02-9668-4caa-a20e-dbeb08fc4feb.gif)
+![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/120270709/224232710-9e6dadc7-cb82-471e-b8cf-cefe1c2e19e7.gif)
+
 
 
