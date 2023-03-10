@@ -9,5 +9,5 @@
 - 개발기간: 23/2/27 ~ 23/3/10 (2주)
 - 팀원: FE - 김한솔, 이동민, 강승찬(Product Manager) BE - 박세희(Product Manager), 이한재
 
-![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/120270709/224229714-79b9d6f7-79f8-43a7-bb36-545fc19a2607.gif)
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/120270709/224229883-9d71a2a5-b718-4f50-87a5-1dc63705ba39.gif)
 
