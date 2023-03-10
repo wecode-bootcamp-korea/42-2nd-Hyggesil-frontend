@@ -35,9 +35,14 @@
 
 ![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/120270709/224232096-fdf31a02-9668-4caa-a20e-dbeb08fc4feb.gif)
 
-### 상세페이지 
+### 상세페이지 (김한솔)
 
 ![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/120270709/224232710-9e6dadc7-cb82-471e-b8cf-cefe1c2e19e7.gif)
+
+- 상세페이지 datepicker로 예약 페이지 구현 
+- moment라이브러리와 datepicker 프로퍼티로 체크인 날짜와 체크아웃 날짜 'YYYY-MM-DD'형식으로 백엔드에 전달
+- 현재 날짜 이전 날짜와 객실이 꽉찬 날짜 예약 불가능하게 하는 기능 구현
+- 결제페이지에서 예약 요청 버튼시 백엔드에 체크인, 체크아웃, 총합계 데이터 전달 유효성검사 이후 결제 
 
 
 
