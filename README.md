@@ -9,18 +9,34 @@
 - 개발기간: 23/2/27 ~ 23/3/10 (2주)
 - 팀원: FE - 김한솔, 이동민, 강승찬(Product Manager) BE - 박세희(Product Manager), 이한재
 
-# 적용 기술 및 구현 기능
+# 적용 기술 및 주요 기능
 
 ## 적용기술
 
 - FE : React.js , Styled-component , Github
 
-## 구현 기능
+## 주요 기능
 
--공유하기
+### 공유하기
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/120270709/224230327-3ae75f2e-631f-4495-8c5b-db81cd94d7be.gif)
 
-- 카카오 외부API 사용하여 상세페이지에서 현재페이지 지인들과 공유하고 싶을때 
+- 카카오 외부API 사용하여 상세페이지에서 현재페이지 공유가능
+
+### 필터 기능
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/120270709/224231097-4e426c08-d4b3-4a01-9f2f-38ed8b294371.gif)
+
+### 호스팅 기능
+
+![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/120270709/224231583-6fd584e6-cc6a-4135-a914-a7a19fcd4585.gif)
+
+### 로그인 기능
+
+![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/120270709/224232096-fdf31a02-9668-4caa-a20e-dbeb08fc4feb.gif)
+
+### 상세페이지 
+
+![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/120270709/224232096-fdf31a02-9668-4caa-a20e-dbeb08fc4feb.gif)
 
 
