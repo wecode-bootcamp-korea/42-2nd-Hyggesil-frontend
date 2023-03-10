@@ -17,7 +17,7 @@
 
 ## 주요 기능
 
-### 공유하기
+### 공유하기 (김한솔)
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/120270709/224230327-3ae75f2e-631f-4495-8c5b-db81cd94d7be.gif)
 
