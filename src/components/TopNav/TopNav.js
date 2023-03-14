@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import styled from 'styled-components';
 function TopNav() {
@@ -9,7 +10,7 @@ function TopNav() {
       {[false].map(expand => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-3">
           <Container fluid>
-            <Logo>
+            <Logo as={Link} to="/">
               <img src="/images/logo1.PNG" />
             </Logo>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

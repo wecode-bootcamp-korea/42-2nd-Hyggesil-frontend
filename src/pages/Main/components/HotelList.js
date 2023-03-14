@@ -4,10 +4,12 @@ import FilterModal from './FilterModals/FilterModal';
 import * as S from './HotelList.styled';
 import { HiOutlineAdjustmentsHorizontal } from 'react-icons/hi2';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import RecentlyView from './RecentlyViewd';
 
 const HotelList = () => {
   const [hotels, setHotels] = useState([]);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+  const [activeFilterButtonId, setActiveFilterButtonId] = useState(null);
   const [initFilter, setInitFilter] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState({
     price_min: 0,
@@ -23,11 +25,7 @@ const HotelList = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    // const URL = `http://10.58.52.190:4000/hotels${location.search}`;
-    // fetch(URL)
-    const MOCK = `data/hotellist.json?${location.search}`;
-    console.log('mock', MOCK);
-    fetch(MOCK)
+    fetch(`http://hyggesil.com/hotels${location.search}`)
       .then(response => response.json())
       .then(({ hotels }) => {
         setHotels(hotels);
@@ -35,7 +33,7 @@ const HotelList = () => {
       .catch(error => {
         console.error('Error:', error);
       });
-  }, [selectedFilters]);
+  }, [selectedFilters, currentPage]);
 
   const handleOpenModal = () => {
     setInitFilter(!initFilter);
@@ -47,6 +45,7 @@ const HotelList = () => {
       ...selectedFilters,
       area_id: areaId,
     });
+
     if (areaId === null) {
       searchParams.delete('area_id');
     } else {
@@ -59,7 +58,8 @@ const HotelList = () => {
     searchParams.set('page', pageNum);
     setSearchParams(searchParams);
   };
-  const pageCount = Math.ceil(hotels.length / 5);
+
+  // const pageCount = Math.ceil(hotels.length / 5);
 
   useEffect(() => {
     searchParams.delete('price_min');
@@ -70,18 +70,25 @@ const HotelList = () => {
     searchParams.delete('convenients');
     setSearchParams(searchParams);
   }, [initFilter]);
+
   return (
     <>
       <S.FilterWrap>
         {FILTER_BUTTON_LIST.map(button => (
           <S.FilterDiv key={button.id}>
-            <button onClick={() => filterByAreaId(button.id)}>
+            <button
+              onClick={() => {
+                filterByAreaId(button.id);
+                setActiveFilterButtonId(button.id);
+              }}
+              className={activeFilterButtonId === button.id ? 'active' : ''}
+            >
               {button.name}
             </button>
           </S.FilterDiv>
         ))}
         <S.FilterBtn onClick={handleOpenModal}>
-          <HiOutlineAdjustmentsHorizontal /> 필터
+          <HiOutlineAdjustmentsHorizontal /> 나에게 딱 맞는 숙소 찾기
         </S.FilterBtn>
       </S.FilterWrap>
 
@@ -89,17 +96,44 @@ const HotelList = () => {
         {hotels.map(hotel => {
           return <Hotel key={hotel.id} hotel={hotel} />;
         })}
+        <RecentlyView />
       </S.HotelContainer>
       <S.Footer>
-        {Array.from({ length: pageCount }).map((_, index) => (
-          <S.PageBtn
-            key={index}
-            selected={currentPage === index + 1}
-            onClick={() => movePage(index + 1)}
-          >
-            {index + 1}
-          </S.PageBtn>
-        ))}
+        <S.PageBtn
+          className={currentPage === 1 ? 'selected' : ''}
+          onClick={() => movePage(1)}
+          selected={currentPage === 1}
+        >
+          1
+        </S.PageBtn>
+        <S.PageBtn
+          className={currentPage === 2 ? 'selected' : ''}
+          onClick={() => movePage(2)}
+          selected={currentPage === 2}
+        >
+          2
+        </S.PageBtn>
+        <S.PageBtn
+          className={currentPage === 3 ? 'selected' : ''}
+          onClick={() => movePage(3)}
+          selected={currentPage === 3}
+        >
+          3
+        </S.PageBtn>
+        <S.PageBtn
+          className={currentPage === 4 ? 'selected' : ''}
+          onClick={() => movePage(4)}
+          selected={currentPage === 4}
+        >
+          4
+        </S.PageBtn>
+        <S.PageBtn
+          className={currentPage === 5 ? 'selected' : ''}
+          onClick={() => movePage(5)}
+          selected={currentPage === 5}
+        >
+          5
+        </S.PageBtn>
       </S.Footer>
       {isFilterModalOpen === true ? (
         <FilterModal

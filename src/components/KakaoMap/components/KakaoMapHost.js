@@ -2,8 +2,6 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Map, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
-import Overlay from 'react-bootstrap/Overlay';
-import Tooltip from 'react-bootstrap/Tooltip';
 
 const KakaoMapHost = ({
   size: { width, height },
@@ -153,9 +151,6 @@ const KakaoMapHost = ({
           <StyledMapBtn variant="primary" onClick={onClickBtn} ref={target}>
             확인
           </StyledMapBtn>
-          <StyledOverlay target={target.current} show={true} placement="bottom">
-            <StyledTooltip>호텔에 마커를 드래그한 후 눌러주세요!</StyledTooltip>
-          </StyledOverlay>
         </StyledMapButtonWrap>
       </StyledMapForm>
     </Map>
@@ -174,7 +169,8 @@ const StyledMapInput = styled.input`
   position: relative;
   padding: 8px;
   margin-right: 60px;
-  width: 500px;
+  width: 340px;
+  height: 38px;
   type: text;
   border: 0;
   border-radius: 10px;
@@ -204,9 +200,3 @@ const StyledInfo = styled.img.attrs({
   width: '30px',
   height: '30px',
 })``;
-
-const StyledOverlay = styled(Overlay)``;
-
-const StyledTooltip = styled(Tooltip)`
-  font-size: 12px;
-`;

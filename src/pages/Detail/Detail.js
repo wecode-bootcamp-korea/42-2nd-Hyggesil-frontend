@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Booking from './Booking/Booking';
 import { AiOutlineUserAdd, AiOutlineWifi } from 'react-icons/ai';
@@ -11,6 +11,7 @@ import { RiTvLine } from 'react-icons/ri';
 import { kakaoShare } from './Share/KakaoShare';
 import * as SC from '../../styles/Container.styled';
 import * as ST from '../../styles/Content.styled';
+import KakaoMap from '../../components/KakaoMap/KakaoMap';
 
 const Detail = () => {
   const params = useParams();
@@ -61,16 +62,22 @@ const Detail = () => {
   ];
 
   useEffect(() => {
-    fetch(`http://10.58.52.190:4000/hotels/${params.id}`)
+    fetch(`http://hyggesil.com/hotels/${params.id}`)
       .then(res => res.json())
       .then(data => {
         setDetailData(data.hotel);
         data.hotel.unAvailableDate.map(exdate =>
           setExcludeDates(prevDates => [...prevDates, new Date(exdate)])
         );
+        const recentItems =
+          JSON.parse(localStorage.getItem('recentItems')) || [];
+        const newRecentItems = [
+          data.hotel,
+          ...recentItems.filter(item => item.id !== data.hotel.id).slice(0, 3), // 최대 4개까지만 저장
+        ];
+        localStorage.setItem('recentItems', JSON.stringify(newRecentItems));
       });
   }, []);
-
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
@@ -149,7 +156,15 @@ const Detail = () => {
       <ST.UnderlineDiv />
       <ST.BoldH1>호스팅 지역</ST.BoldH1>
       <SC.MapWrapper>
-        <SC.MapContainer>지도</SC.MapContainer>
+        <SC.MapContainer>
+          {detailData.coordinate && (
+            <KakaoMap
+              data={detailData}
+              size={{ width: '100%', height: '400px' }}
+              type="detail"
+            />
+          )}
+        </SC.MapContainer>
       </SC.MapWrapper>
     </SC.DetailContainer>
   );

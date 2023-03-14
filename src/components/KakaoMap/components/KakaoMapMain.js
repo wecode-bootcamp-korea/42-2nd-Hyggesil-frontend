@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Map } from 'react-kakao-maps-sdk';
-import KakaoMapMainMarker from './components/KakaoMapMainMarker';
+import KakaoMapMainMarker from './KakaoMapMainMarker';
 
 const KakaoMapMain = ({ data, size: { width, height } }) => {
   const [toggles, setToggles] = useState([]);
@@ -30,7 +30,7 @@ const KakaoMapMain = ({ data, size: { width, height } }) => {
       level={5}
       disableDoubleClick={true}
     >
-      {data.map(({ id, name, price, coordinate }, idx) => {
+      {data.map(({ id, name, price, coordinate, images }, idx) => {
         return (
           <KakaoMapMainMarker
             key={id}
@@ -38,6 +38,7 @@ const KakaoMapMain = ({ data, size: { width, height } }) => {
             name={name}
             price={price}
             coordinate={coordinate}
+            images={images}
             toggle={toggles[idx]}
             handleToggle={() => handleToggle(idx)}
           />

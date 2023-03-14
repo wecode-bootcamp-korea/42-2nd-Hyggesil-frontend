@@ -9,6 +9,7 @@ const KakaoMapMainMarker = ({
   id,
   name,
   coordinate,
+  images,
   toggle,
   handleToggle,
 }) => {
@@ -35,11 +36,7 @@ const KakaoMapMainMarker = ({
       </StyledInfoWindow>
       {toggle && (
         <StyledInfoCard onClick={onClickInfoCard}>
-          <StyledInfoImage
-            variant="top"
-            //Fix: 서버에서 데이터 받아와서 심어주기
-            src="https://www.lottehotel.com/content/dam/lotte-hotel/lotte/world/accommodation/residential-room/3813-04-roo-2000-LTWO.jpg.thumb.1920.1920.jpg"
-          />
+          <StyledInfoImage variant="top" src={images[0]} />
           <StyledInfoBody>
             <StyledInfoTitle>{name}</StyledInfoTitle>
             <StyledInfoText>
