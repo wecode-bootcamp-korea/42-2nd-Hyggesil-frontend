@@ -54,6 +54,7 @@ const User = ({ content: { title, text, url, text2 } }) => {
 
   // 폼 제출
   const onSubmit = e => {
+    console.log(1);
     e.preventDefault();
     // 로그인 API 호출
     if (isLogin) {
@@ -69,6 +70,7 @@ const User = ({ content: { title, text, url, text2 } }) => {
       })
         .then(response => response.json())
         .then(data => {
+          console.log(data);
           if (data.accessToken) {
             localStorage.setItem('token', data.accessToken);
             navigate('/');

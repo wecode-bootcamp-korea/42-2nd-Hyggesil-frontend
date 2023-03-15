@@ -4,6 +4,8 @@ import KakaoMapMainMarker from './KakaoMapMainMarker';
 
 const KakaoMapMain = ({ data, size: { width, height } }) => {
   const [toggles, setToggles] = useState([]);
+  console.log(data);
+  console.log(width);
 
   const handleToggle = index => {
     const newToggles = toggles.map((toggle, i) => {
@@ -25,9 +27,9 @@ const KakaoMapMain = ({ data, size: { width, height } }) => {
 
   return (
     <Map
-      center={{ lat: 37.5642135, lng: 127.0016985 }}
+      center={{ lat: 37.541, lng: 126.986 }}
       style={{ width: width, height: height, zIndex: 0 }}
-      level={5}
+      level={8}
       disableDoubleClick={true}
     >
       {data.map(({ id, name, price, coordinate, images }, idx) => {

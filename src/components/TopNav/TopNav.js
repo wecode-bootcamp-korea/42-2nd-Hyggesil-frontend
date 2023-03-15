@@ -8,7 +8,7 @@ function TopNav() {
   return (
     <>
       {[false].map(expand => (
-        <Navbar key={expand} bg="light" expand={expand} className="mb-3">
+        <StyledNav key={expand} bg="light" expand={expand} className="mb-3">
           <Container fluid>
             <Logo as={Link} to="/">
               <img src="/images/logo1.PNG" />
@@ -34,7 +34,7 @@ function TopNav() {
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
-        </Navbar>
+        </StyledNav>
       ))}
     </>
   );
@@ -45,5 +45,13 @@ export default TopNav;
 const Logo = styled.div`
   img {
     width: 200px;
+  }
+`;
+
+const StyledNav = styled(Navbar)`
+  margin: 0;
+
+  .navbar-collapse {
+    margin: 0 !important;
   }
 `;
